@@ -1,0 +1,40 @@
+name: ai-task-manager
+
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "${APP_PORT:-8000}:8000"
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "true"
+      APP_URL: "http://localhost:${APP_PORT:-8000}"
+      DB_CONNECTION: sqlite
+      DB_DATABASE: /var/www/html/storage/database.sqlite
+      CACHE_STORE: database
+      QUEUE_CONNECTION: database
+      SESSION_DRIVER: database
+    volumes:
+      - storage:/var/www/html/storage
+
+  scheduler:
+    build:
+      context: .
+    command: ["php", "artisan", "schedule:work"]
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "true"
+      DB_CONNECTION: sqlite
+      DB_DATABASE: /var/www/html/storage/database.sqlite
+      CACHE_STORE: database
+      QUEUE_CONNECTION: database
+      SESSION_DRIVER: database
+    volumes:
+      - storage:/var/www/html/storage
+    depends_on:
+      app:
+        condition: service_started
+
+volumes:
+  storage:
