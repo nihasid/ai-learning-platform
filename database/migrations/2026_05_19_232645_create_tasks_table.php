@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tasks', function (Blueprint $table) {
-            // $table->id();
             $table->uuid('id')->primary();
             $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
-            // $table->foreignUuid('category_id')->nullable()->constrained()->nullOnDelete();
-            $table->foreignUuid('parent_task_id')->nullable()->references('id')->on('tasks')->nullOnDelete();
+            $table->foreignUuid('category_id')->nullable()->constrained()->nullOnDelete();
+            $table->uuid('parent_task_id')->nullable();
+            // $table->foreign('parent_task_id')->references('id')->on('tasks')->nullOnDelete();
             $table->string('title');
             $table->text('description')->nullable();
             $table->enum('status', ['pending', 'in_progress', 'snoozed', 'completed', 'skipped'])
@@ -29,11 +29,19 @@ return new class extends Migration
             $table->timestamp('completed_at')->nullable();
             $table->unsignedSmallInteger('ai_rank')->default(0);
             $table->float('ai_score', 5, 2)->default(0);
-            $table->json('ai_reasoning')->nullable();
-            $table->timestamps();
- 
+            $table->json('ai_reasoning')->nullable(); 
             $table->index(['user_id', 'status', 'due_at']);
             $table->index(['user_id', 'ai_rank']);
+            // add FK after id exists
+            // $table->foreign('parent_task_id')->references('id')->on('tasks')->nullOnDelete();
+            $table->timestamps();
+        });
+
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->foreign('parent_task_id')
+                ->references('id')
+                ->on('tasks')
+                ->nullOnDelete();
         });
     }
 
@@ -42,6 +50,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->dropForeign(['parent_task_id']);
+        });
+
         Schema::dropIfExists('tasks');
     }
 };

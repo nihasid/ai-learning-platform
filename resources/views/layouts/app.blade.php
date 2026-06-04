@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'AI Task Manager') }}</title>
+        <title>{{ config('app.name', 'BrightSteps Learning') }}</title>
 
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700&display=swap" rel="stylesheet" />
@@ -76,7 +76,7 @@
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <a href="{{ route('dashboard') }}" class="brand-link">
                     <i class="fas fa-list-check brand-image mt-1 ml-3"></i>
-                    <span class="brand-text font-weight-light ml-2">AI Task Manager</span>
+                    <span class="brand-text font-weight-light ml-2">BrightSteps Learning</span>
                 </a>
 
                 <div class="sidebar">
@@ -96,9 +96,36 @@
                             <li class="nav-item">
                                 <a href="{{ route('dashboard') }}" class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-gauge-high"></i>
-                                    <p>Task Dashboard</p>
+                                    <p>Parent Dashboard</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('dashboard') }}" class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-shapes"></i>
+                                    <p>Curriculum</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('worksheets.index') }}" class="nav-link {{ request()->routeIs('worksheets.*') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-file-lines"></i>
+                                    <p>Worksheets</p>
+                                </a>
+                            </li>
+                            @if (Auth::user()?->isAdmin())
+                                <li class="nav-header">ADMIN</li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.worksheets.index') }}" class="nav-link {{ request()->routeIs('admin.worksheets.*') ? 'active' : '' }}">
+                                        <i class="nav-icon fas fa-file-pdf"></i>
+                                        <p>Worksheet Uploads</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.accounts.index') }}" class="nav-link {{ request()->routeIs('admin.accounts.*') ? 'active' : '' }}">
+                                        <i class="nav-icon fas fa-users-gear"></i>
+                                        <p>Accounts & ACL</p>
+                                    </a>
+                                </li>
+                            @endif
                             <li class="nav-item">
                                 <a href="{{ route('profile.edit') }}" class="nav-link {{ request()->routeIs('profile.*') ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-user-gear"></i>
@@ -127,8 +154,8 @@
             </div>
 
             <footer class="main-footer">
-                <strong>{{ config('app.name', 'AI Task Manager') }}</strong>
-                <span class="float-right d-none d-sm-inline">Task management admin panel</span>
+                <strong>{{ config('app.name', 'BrightSteps Learning') }}</strong>
+                <span class="float-right d-none d-sm-inline">Parent-guided learning</span>
             </footer>
         </div>
 

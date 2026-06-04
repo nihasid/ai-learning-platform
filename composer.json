@@ -2,7 +2,7 @@
     "$schema": "https://getcomposer.org/schema.json",
     "name": "nihasid/ai-task-manager",
     "type": "project",
-    "description": "AI task manager built with Laravel, Breeze, Sanctum, Tailwind, UUIDs, and Docker.",
+    "description": "Parent-guided child learning app built with Laravel, Breeze, Sanctum, Tailwind, UUIDs, and Docker.",
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {

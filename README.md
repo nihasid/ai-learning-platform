@@ -1,6 +1,6 @@
-# ai-task-manager
+# BrightSteps Learning
 
-A stable Laravel 13 application scaffolded with:
+A stable Laravel 13 parent-guided, child-facing learning application scaffolded with:
 
 - Laravel Breeze using Blade views
 - Tailwind CSS and Vite
@@ -8,6 +8,8 @@ A stable Laravel 13 application scaffolded with:
 - UUID primary keys for users
 - Laravel scheduler support
 - Docker Compose runtime
+
+Parents can manage child profiles, create curriculum activities across literacy, numeracy, motor skills, and social-emotional learning, and track child progress. Children use a colorful tap-friendly play mode with big buttons and browser speech guidance.
 
 ## Run With Docker
 
@@ -38,7 +40,7 @@ The `scheduler` service runs `php artisan schedule:work`. A default scheduled ta
 
 ## Local Development Without Docker
 
-This project requires PHP 8.3 or newer.
+This project requires the PHP version specified by Composer.
 
 ```bash
 composer install
