@@ -32,6 +32,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('kidkinder/css/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/pages.css') }}" rel="stylesheet" />
   </head>
 
   <body>
@@ -41,8 +42,7 @@
         class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5"
       >
         <a
-          href="{{ url('/') }}" class="navbar-brand font-weight-bold text-secondary"
-          style="font-size: 50px"
+          href="{{ url('/') }}" class="navbar-brand font-weight-bold text-secondary welcome-brand"
         >
           <i class="flaticon-043-teddy-bear"></i>
           <span class="text-primary">EduHive</span>
@@ -90,29 +90,92 @@
     <!-- Navbar End -->
 
     <!-- Header Start -->
-    <div class="container-fluid bg-primary px-0 px-md-5 mb-5">
-      <div class="row align-items-center px-3">
-        <div class="col-lg-6 text-center text-lg-left">
-          <h4 class="text-white mb-4 mt-5 mt-lg-0">Kids Learning Center</h4>
-          <h1 class="display-3 font-weight-bold text-white">
-            New Approach to Kids Education
-          </h1>
-          <p class="text-white mb-4">
-            Sea ipsum kasd eirmod kasd magna, est sea et diam ipsum est amet sed
-            sit. Ipsum dolor no justo dolor et, lorem ut dolor erat dolore sed
-            ipsum at ipsum nonumy amet. Clita lorem dolore sed stet et est justo
-            dolore.
-          </p>
-          @auth
-          <a href="{{ route('dashboard') }}" class="btn btn-secondary mt-1 py-3 px-5">Learn More!</a>
-          @else
-          <a href="{{ route('login') }}" class="btn btn-secondary mt-1 py-3 px-5">Learn More</a>
-          @endauth
+    <div id="welcomeHeaderSlider" class="carousel slide welcome-header-slider" data-ride="carousel" data-interval="6000">
+      <ol class="carousel-indicators">
+        <li data-target="#welcomeHeaderSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#welcomeHeaderSlider" data-slide-to="1"></li>
+        <li data-target="#welcomeHeaderSlider" data-slide-to="2"></li>
+      </ol>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="container-fluid bg-primary px-0 px-md-5">
+            <div class="row align-items-center px-3 header-slide">
+              <div class="col-lg-6 text-center text-lg-left">
+                <h1 class="display-3 font-weight-bold text-white">
+                  New Approach to Kids Education
+                </h1>
+                <p class="text-white mb-4">
+                  Welcome to EduHive, a Kids Learning Center platform designed to make learning engaging, flexible, and meaningful for every child.
+                </p>
+                @auth
+                <a href="{{ route('dashboard') }}" class="btn btn-secondary mt-1 py-3 px-5">Learn More!</a>
+                @else
+                <a href="{{ route('login') }}" class="btn btn-secondary mt-1 py-3 px-5">Learn More</a>
+                @endauth
+              </div>
+              <div class="col-lg-6 text-center text-lg-right">
+                <img class="img-fluid mt-5 header-slide-image" src="{{ asset('kidkinder/img/header.png') }}" alt="Child reading a book" />
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-6 text-center text-lg-right">
-          <img class="img-fluid mt-5" src="{{ asset('kidkinder/img/header.png') }}" alt="" />
+
+        <div class="carousel-item">
+          <div class="container-fluid bg-primary px-0 px-md-5">
+            <div class="row align-items-center px-3 header-slide">
+              <div class="col-lg-6 text-center text-lg-left">
+                <h1 class="display-3 font-weight-bold text-white">
+                  Learn, Play, and Grow at Home
+                </h1>
+                <p class="text-white mb-4">
+                  Personalized worksheets, creative games, and guided activities help children learn confidently at their own pace.
+                </p>
+                @auth
+                <a href="{{ route('dashboard') }}" class="btn btn-secondary mt-1 py-3 px-5">Open Dashboard</a>
+                @else
+                <a href="{{ Route::has('register') ? route('register') : route('login') }}" class="btn btn-secondary mt-1 py-3 px-5">Join Now!</a>
+                @endauth
+              </div>
+              <div class="col-lg-6 text-center text-lg-right">
+                <img class="img-fluid mt-5 rounded header-slide-image" src="{{ asset('kidkinder/img/blog-1.jpg') }}" alt="Children drawing in class" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="container-fluid bg-primary px-0 px-md-5">
+            <div class="row align-items-center px-3 header-slide">
+              <div class="col-lg-6 text-center text-lg-left">
+                <h1 class="display-3 font-weight-bold text-white">
+                  Fun Activities With Real Progress
+                </h1>
+                <p class="text-white mb-4">
+                  From rhymes and games to hands-on lessons, EduHive turns everyday learning into a warm and structured experience.
+                </p>
+                @auth
+                <a href="{{ route('dashboard') }}" class="btn btn-secondary mt-1 py-3 px-5">Continue</a>
+                @else
+                <a href="{{ route('login') }}" class="btn btn-secondary mt-1 py-3 px-5">Get Started</a>
+                @endauth
+              </div>
+              <div class="col-lg-6 text-center text-lg-right">
+                <img class="img-fluid mt-5 rounded header-slide-image" src="{{ asset('kidkinder/img/detail.jpg') }}" alt="Child exploring learning activities" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
+      <a class="carousel-control-prev" href="#welcomeHeaderSlider" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#welcomeHeaderSlider" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
     <!-- Header End -->
 
@@ -121,10 +184,9 @@
     <div class="container-fluid pt-5">
       <div class="container pb-3">
         <div class="row">
-          <div class="col-lg-4 col-md-6 pb-1">
+          <div class="col-lg-4 col-md-6 pb-1 d-flex">
             <div
-              class="d-flex bg-light shadow-sm border-top rounded mb-4"
-              style="padding: 30px"
+              class="d-flex bg-light shadow-sm border-top rounded mb-4 feature-tile w-100"
             >
               <i
                 class="flaticon-050-fence h1 font-weight-normal text-primary mb-3"
@@ -132,33 +194,29 @@
               <div class="pl-4">
                 <h4>Games</h4>
                 <p class="m-0">
-                  Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
-                  lorem amet elitr vero...
+                  Fun educational games build problem-solving skills through playful learning experiences.
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 pb-1">
+          <div class="col-lg-4 col-md-6 pb-1 d-flex">
             <div
-              class="d-flex bg-light shadow-sm border-top rounded mb-4"
-              style="padding: 30px"
+              class="d-flex bg-light shadow-sm border-top rounded mb-4 feature-tile w-100"
             >
               <i
                 class="flaticon-022-drum h1 font-weight-normal text-primary mb-3"
               ></i>
               <div class="pl-4">
-                <h4>Music and Dance</h4>
+                <h4>Rhymes</h4>
                 <p class="m-0">
-                  Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
-                  lorem amet elitr vero...
+                  Playful rhymes improve vocabulary, pronunciation, memory, rhythm, and listening skills.
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 pb-1">
+          <div class="col-lg-4 col-md-6 pb-1 d-flex">
             <div
-              class="d-flex bg-light shadow-sm border-top rounded mb-4"
-              style="padding: 30px"
+              class="d-flex bg-light shadow-sm border-top rounded mb-4 feature-tile w-100"
             >
               <i
                 class="flaticon-030-crayons h1 font-weight-normal text-primary mb-3"
@@ -166,59 +224,52 @@
               <div class="pl-4">
                 <h4>Arts and Crafts</h4>
                 <p class="m-0">
-                  Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
-                  lorem amet elitr vero...
+                  Creative projects inspire imagination, self-expression, coordination, patience, and confidence daily.
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 pb-1">
+          <div class="col-lg-4 col-md-6 pb-1 d-flex">
             <div
-              class="d-flex bg-light shadow-sm border-top rounded mb-4"
-              style="padding: 30px"
+              class="d-flex bg-light shadow-sm border-top rounded mb-4 feature-tile w-100"
             >
               <i
                 class="flaticon-017-toy-car h1 font-weight-normal text-primary mb-3"
               ></i>
               <div class="pl-4">
-                <h4>Activity</h4>
+                <h4>Activities</h4>
                 <p class="m-0">
-                  Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
-                  lorem amet elitr vero...
+                  Hands-on activities turn everyday moments into meaningful learning opportunities naturally.
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 pb-1">
+          <div class="col-lg-4 col-md-6 pb-1 d-flex">
             <div
-              class="d-flex bg-light shadow-sm border-top rounded mb-4"
-              style="padding: 30px"
+              class="d-flex bg-light shadow-sm border-top rounded mb-4 feature-tile w-100"
             >
               <i
                 class="flaticon-025-sandwich h1 font-weight-normal text-primary mb-3"
               ></i>
               <div class="pl-4">
-                <h4>Healthy food</h4>
+                <h4>Healthy Food</h4>
                 <p class="m-0">
-                  Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
-                  lorem amet elitr vero...
+                  Healthy food choices support growing minds, energy, focus, and wellbeing.
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 pb-1">
+          <div class="col-lg-4 col-md-6 pb-1 d-flex">
             <div
-              class="d-flex bg-light shadow-sm border-top rounded mb-4"
-              style="padding: 30px"
+              class="d-flex bg-light shadow-sm border-top rounded mb-4 feature-tile w-100"
             >
               <i
                 class="flaticon-047-backpack h1 font-weight-normal text-primary mb-3"
               ></i>
               <div class="pl-4">
-                <h4>Educational Tour</h4>
+                <h4>Riddles</h4>
                 <p class="m-0">
-                  Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero
-                  lorem amet elitr vero...
+                  Clever riddles strengthen reasoning, creativity, concentration, language, and problem-solving skills.
                 </p>
               </div>
             </div>
@@ -233,9 +284,9 @@
         <div class="row align-items-center">
           <div class="col-lg-5">
             <img
-              class="img-fluid rounded mb-5 mb-lg-0"
-              src="{{ asset('kidkinder/img/about-1.jpg') }}"
-              alt=""
+              class="img-fluid rounded mb-5 mb-lg-0 about-main-image"
+              src="{{ asset('kidkinder/img/about-2.jpg') }}"
+              alt="Child enjoying a learning activity"
             />
           </div>
           <div class="col-lg-7">
@@ -244,16 +295,17 @@
             </p>
             <h1 class="mb-4">Best Learning platform For Your Kids</h1>
             <p>
-              Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo
-              dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.
-              Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est
-              dolor
+              At Kids Learning Center, we believe every child deserves an education that feels personal, not one-size-fits-all. Our homeschooling platform brings together engaging lessons, hands-on activities, and practical resources to help parents create a learning experience that truly fits their child.
+                We're built around three things: confidence, curiosity, and a strong foundation. Every child learns differently, and at their own pace, that's exactly how we designed this platform to work.
+            </p> 
+            <p>
+                Our mission is simple, make home education easy, joyful, and meaningful for every family, every day.
             </p>
             <div class="row pt-2 pb-4">
-              <div class="col-6 col-md-4">
+              <!-- <div class="col-6 col-md-4">
                 <img class="img-fluid rounded" src="{{ asset('kidkinder/img/about-2.jpg') }}" alt="" />
-              </div>
-              <div class="col-6 col-md-8">
+              </div> -->
+              <!-- <div class="col-6 col-md-8">
                 <ul class="list-inline m-0">
                   <li class="py-2 border-top border-bottom">
                     <i class="fa fa-check text-primary mr-3"></i>Labore eos amet
@@ -268,7 +320,7 @@
                     elitripsum vero.
                   </li>
                 </ul>
-              </div>
+              </div> -->
             </div>
             <a href="" class="btn btn-primary mt-2 py-2 px-4">Learn More</a>
           </div>
@@ -277,9 +329,9 @@
     </div>
     <!-- About End -->
 
-    <div id="classes"></div>
+    <!--  <div id="classes"></div> -->
     <!-- Class Start -->
-    <div class="container-fluid pt-5">
+    <!-- <div class="container-fluid pt-5">
       <div class="container">
         <div class="text-center pb-2">
           <p class="section-title px-5">
@@ -407,7 +459,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Class End -->
 
     <!-- Registration Start -->
@@ -466,8 +518,7 @@
                   </div>
                   <div class="form-group">
                     <select
-                      class="custom-select border-0 px-4"
-                      style="height: 47px"
+                      class="custom-select border-0 px-4 booking-input"
                     >
                       <option selected>Select A Class</option>
                       <option value="1">Class 1</option>
@@ -505,28 +556,24 @@
         <div class="row">
           <div class="col-md-6 col-lg-3 text-center team mb-5">
             <div
-              class="position-relative overflow-hidden mb-4"
-              style="border-radius: 100%"
+              class="position-relative overflow-hidden mb-4 teacher-photo-wrap"
             >
               <img class="img-fluid w-100" src="{{ asset('kidkinder/img/team-1.jpg') }}" alt="" />
               <div
                 class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute"
               >
                 <a
-                  class="btn btn-outline-light text-center mr-2 px-0"
-                  style="width: 38px; height: 38px"
+                  class="btn btn-outline-light text-center mr-2 px-0 social-link"
                   href="#"
                   ><i class="fab fa-twitter"></i
                 ></a>
                 <a
-                  class="btn btn-outline-light text-center mr-2 px-0"
-                  style="width: 38px; height: 38px"
+                  class="btn btn-outline-light text-center mr-2 px-0 social-link"
                   href="#"
                   ><i class="fab fa-facebook-f"></i
                 ></a>
                 <a
-                  class="btn btn-outline-light text-center px-0"
-                  style="width: 38px; height: 38px"
+                  class="btn btn-outline-light text-center px-0 social-link"
                   href="#"
                   ><i class="fab fa-linkedin-in"></i
                 ></a>
@@ -537,28 +584,24 @@
           </div>
           <div class="col-md-6 col-lg-3 text-center team mb-5">
             <div
-              class="position-relative overflow-hidden mb-4"
-              style="border-radius: 100%"
+              class="position-relative overflow-hidden mb-4 teacher-photo-wrap"
             >
               <img class="img-fluid w-100" src="{{ asset('kidkinder/img/team-2.jpg') }}" alt="" />
               <div
                 class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute"
               >
                 <a
-                  class="btn btn-outline-light text-center mr-2 px-0"
-                  style="width: 38px; height: 38px"
+                  class="btn btn-outline-light text-center mr-2 px-0 social-link"
                   href="#"
                   ><i class="fab fa-twitter"></i
                 ></a>
                 <a
-                  class="btn btn-outline-light text-center mr-2 px-0"
-                  style="width: 38px; height: 38px"
+                  class="btn btn-outline-light text-center mr-2 px-0 social-link"
                   href="#"
                   ><i class="fab fa-facebook-f"></i
                 ></a>
                 <a
-                  class="btn btn-outline-light text-center px-0"
-                  style="width: 38px; height: 38px"
+                  class="btn btn-outline-light text-center px-0 social-link"
                   href="#"
                   ><i class="fab fa-linkedin-in"></i
                 ></a>
@@ -569,28 +612,24 @@
           </div>
           <div class="col-md-6 col-lg-3 text-center team mb-5">
             <div
-              class="position-relative overflow-hidden mb-4"
-              style="border-radius: 100%"
+              class="position-relative overflow-hidden mb-4 teacher-photo-wrap"
             >
               <img class="img-fluid w-100" src="{{ asset('kidkinder/img/team-3.jpg') }}" alt="" />
               <div
                 class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute"
               >
                 <a
-                  class="btn btn-outline-light text-center mr-2 px-0"
-                  style="width: 38px; height: 38px"
+                  class="btn btn-outline-light text-center mr-2 px-0 social-link"
                   href="#"
                   ><i class="fab fa-twitter"></i
                 ></a>
                 <a
-                  class="btn btn-outline-light text-center mr-2 px-0"
-                  style="width: 38px; height: 38px"
+                  class="btn btn-outline-light text-center mr-2 px-0 social-link"
                   href="#"
                   ><i class="fab fa-facebook-f"></i
                 ></a>
                 <a
-                  class="btn btn-outline-light text-center px-0"
-                  style="width: 38px; height: 38px"
+                  class="btn btn-outline-light text-center px-0 social-link"
                   href="#"
                   ><i class="fab fa-linkedin-in"></i
                 ></a>
@@ -601,28 +640,24 @@
           </div>
           <div class="col-md-6 col-lg-3 text-center team mb-5">
             <div
-              class="position-relative overflow-hidden mb-4"
-              style="border-radius: 100%"
+              class="position-relative overflow-hidden mb-4 teacher-photo-wrap"
             >
               <img class="img-fluid w-100" src="{{ asset('kidkinder/img/team-4.jpg') }}" alt="" />
               <div
                 class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute"
               >
                 <a
-                  class="btn btn-outline-light text-center mr-2 px-0"
-                  style="width: 38px; height: 38px"
+                  class="btn btn-outline-light text-center mr-2 px-0 social-link"
                   href="#"
                   ><i class="fab fa-twitter"></i
                 ></a>
                 <a
-                  class="btn btn-outline-light text-center mr-2 px-0"
-                  style="width: 38px; height: 38px"
+                  class="btn btn-outline-light text-center mr-2 px-0 social-link"
                   href="#"
                   ><i class="fab fa-facebook-f"></i
                 ></a>
                 <a
-                  class="btn btn-outline-light text-center px-0"
-                  style="width: 38px; height: 38px"
+                  class="btn btn-outline-light text-center px-0 social-link"
                   href="#"
                   ><i class="fab fa-linkedin-in"></i
                 ></a>
@@ -637,7 +672,7 @@
     <!-- Team End -->
 
     <!-- Testimonial Start -->
-    <div class="container-fluid py-5">
+    <!-- <div class="container-fluid py-5">
       <div class="container p-0">
         <div class="text-center pb-2">
           <p class="section-title px-5">
@@ -654,9 +689,8 @@
             </div>
             <div class="d-flex align-items-center">
               <img
-                class="rounded-circle"
+                class="rounded-circle testimonial-avatar"
                 src="{{ asset('kidkinder/img/testimonial-1.jpg') }}"
-                style="width: 70px; height: 70px"
                 alt="Image"
               />
               <div class="pl-3">
@@ -673,9 +707,8 @@
             </div>
             <div class="d-flex align-items-center">
               <img
-                class="rounded-circle"
+                class="rounded-circle testimonial-avatar"
                 src="{{ asset('kidkinder/img/testimonial-2.jpg') }}"
-                style="width: 70px; height: 70px"
                 alt="Image"
               />
               <div class="pl-3">
@@ -692,9 +725,8 @@
             </div>
             <div class="d-flex align-items-center">
               <img
-                class="rounded-circle"
+                class="rounded-circle testimonial-avatar"
                 src="{{ asset('kidkinder/img/testimonial-3.jpg') }}"
-                style="width: 70px; height: 70px"
                 alt="Image"
               />
               <div class="pl-3">
@@ -711,9 +743,8 @@
             </div>
             <div class="d-flex align-items-center">
               <img
-                class="rounded-circle"
+                class="rounded-circle testimonial-avatar"
                 src="{{ asset('kidkinder/img/testimonial-4.jpg') }}"
-                style="width: 70px; height: 70px"
                 alt="Image"
               />
               <div class="pl-3">
@@ -724,7 +755,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Testimonial End -->
 
     <!-- <div id="blog"></div> -->
@@ -832,39 +863,32 @@
       <div class="row pt-5">
         <div class="col-lg-3 col-md-6 mb-5">
           <a
-            href="{{ url('/') }}" class="navbar-brand font-weight-bold text-primary m-0 mb-4 p-0"
-            style="font-size: 40px; line-height: 40px"
+            href="{{ url('/') }}" class="navbar-brand font-weight-bold text-primary m-0 mb-4 p-0 footer-brand-icon"
           >
             <i class="flaticon-043-teddy-bear"></i>
             <span class="text-white">EduHive</span>
           </a>
           <p>
-            Labore dolor amet ipsum ea, erat sit ipsum duo eos. Volup amet ea
-            dolor et magna dolor, elitr rebum duo est sed diam elitr. Stet elitr
-            stet diam duo eos rebum ipsum diam ipsum elitr.
+            At EduHive, we're doing things a bit differently. Our approach pairs tailored homeschooling with creative, hands-on discovery. We’ve built a cozy, encouraging community where kids don't just grow—they develop a genuine, lifelong love for learning.
           </p>
           <div class="d-flex justify-content-start mt-4">
             <a
-              class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
-              style="width: 38px; height: 38px"
+              class="btn btn-outline-primary rounded-circle text-center mr-2 px-0 social-link"
               href="#"
               ><i class="fab fa-twitter"></i
             ></a>
             <a
-              class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
-              style="width: 38px; height: 38px"
+              class="btn btn-outline-primary rounded-circle text-center mr-2 px-0 social-link"
               href="#"
               ><i class="fab fa-facebook-f"></i
             ></a>
             <a
-              class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
-              style="width: 38px; height: 38px"
+              class="btn btn-outline-primary rounded-circle text-center mr-2 px-0 social-link"
               href="#"
               ><i class="fab fa-linkedin-in"></i
             ></a>
             <a
-              class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
-              style="width: 38px; height: 38px"
+              class="btn btn-outline-primary rounded-circle text-center mr-2 px-0 social-link"
               href="#"
               ><i class="fab fa-instagram"></i
             ></a>
@@ -883,7 +907,7 @@
             <h4 class="fa fa-envelope text-primary"></h4>
             <div class="pl-3">
               <h5 class="text-white">Email</h5>
-              <p>nihasiddiqui76@gmail.com</p>
+              <p>eduhive@gmail.com</p>
             </div>
           </div>
           <!-- <div class="d-flex">
@@ -948,8 +972,7 @@
         </div>
       </div>
       <div
-        class="container-fluid pt-5"
-        style="border-top: 1px solid rgba(23, 162, 184, 0.2) ;"
+        class="container-fluid pt-5 footer-divider"
       >
         <p class="m-0 text-center text-white">
           &copy;
@@ -957,10 +980,10 @@
           All Rights Reserved.
 
           <!--/*** This template is free as long as you keep the footer authorâ€™s credit link/attribution link/backlink. If you'd like to use the template without the footer authorâ€™s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-          Designed by
+          <!-- Designed by
           <a class="text-primary font-weight-bold" href="https://www.linkedin.com/in/niha-siddiqui/"
             >Niha Wahaj</a
-          >
+          > -->
         </p>
       </div>
     </div>
@@ -987,5 +1010,3 @@
     <script src="{{ asset('kidkinder/js/main.js') }}"></script>
   </body>
 </html>
-
-

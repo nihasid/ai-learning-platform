@@ -86,7 +86,7 @@
                             @forelse ($children as $child)
                                 <tr>
                                     <td>
-                                        <span class="task-priority-dot" style="background: {{ $child->avatar_color }}"></span>
+                                        <span class="task-priority-dot" data-avatar-color="{{ $child->avatar_color }}"></span>
                                         {{ $child->name }}
                                     </td>
                                     <td>{{ $child->audio_guidance_enabled ? 'On' : 'Off' }}</td>

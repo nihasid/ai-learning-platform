@@ -124,7 +124,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                <span class="task-priority-dot" style="background: {{ $child->avatar_color }}"></span>
+                                <span class="task-priority-dot" data-avatar-color="{{ $child->avatar_color }}"></span>
                                 {{ $child->name }}'s Assigned Worksheets
                             </h3>
                         </div>

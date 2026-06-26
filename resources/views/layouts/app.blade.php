@@ -14,32 +14,7 @@
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
-
-        <style>
-            body {
-                font-family: Figtree, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            }
-
-            .brand-link {
-                border-bottom: 1px solid rgba(255, 255, 255, .08);
-            }
-
-            .content-wrapper {
-                background: #f4f6f9;
-            }
-
-            .task-priority-dot {
-                border-radius: 999px;
-                display: inline-block;
-                height: .65rem;
-                margin-right: .4rem;
-                width: .65rem;
-            }
-
-            .task-progress {
-                height: .55rem;
-            }
-        </style>
+        <link rel="stylesheet" href="{{ asset('css/pages.css') }}">
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">
         <div class="wrapper">
@@ -82,7 +57,7 @@
                 <div class="sidebar">
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
-                            <span class="img-circle elevation-2 d-inline-flex align-items-center justify-content-center bg-info" style="height: 34px; width: 34px;">
+                            <span class="img-circle elevation-2 d-inline-flex align-items-center justify-content-center bg-info sidebar-avatar">
                                 <i class="fas fa-user"></i>
                             </span>
                         </div>
@@ -162,5 +137,6 @@
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+        <script src="{{ asset('js/pages.js') }}"></script>
     </body>
 </html>

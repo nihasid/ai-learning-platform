@@ -1,0 +1,276 @@
+[x-cloak] {
+    display: none !important;
+}
+
+body {
+    font-family: Figtree, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.brand-link {
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.content-wrapper {
+    background: #f4f6f9;
+}
+
+.task-priority-dot {
+    border-radius: 999px;
+    display: inline-block;
+    height: .65rem;
+    margin-right: .4rem;
+    width: .65rem;
+}
+
+.task-progress {
+    height: .55rem;
+}
+
+.sidebar-avatar {
+    height: 34px;
+    width: 34px;
+}
+
+.about-main-image {
+    aspect-ratio: 4 / 3;
+    height: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+}
+
+.welcome-brand {
+    font-size: 50px;
+}
+
+.welcome-header-slider {
+    margin-bottom: 3rem;
+}
+
+.welcome-header-slider .carousel-indicators {
+    bottom: 18px;
+}
+
+.welcome-header-slider .carousel-indicators li {
+    border-radius: 50%;
+    height: 12px;
+    width: 12px;
+}
+
+.welcome-header-slider .header-slide {
+    min-height: 560px;
+}
+
+.welcome-header-slider .header-slide-image {
+    max-height: 520px;
+    object-fit: contain;
+}
+
+.welcome-header-slider .carousel-control-prev,
+.welcome-header-slider .carousel-control-next {
+    opacity: 1;
+    width: 7%;
+}
+
+.welcome-header-slider .carousel-control-prev-icon,
+.welcome-header-slider .carousel-control-next-icon {
+    background-color: rgba(0, 57, 79, 0.75);
+    background-size: 46%;
+    border-radius: 50%;
+    height: 46px;
+    width: 46px;
+}
+
+.feature-tile {
+    align-items: flex-start;
+    min-height: 168px;
+    padding: 30px;
+}
+
+.feature-tile > i {
+    flex: 0 0 48px;
+    line-height: 1;
+    margin-top: 2px;
+    text-align: center;
+}
+
+.feature-tile h4 {
+    font-size: 1.25rem;
+    line-height: 1.25;
+    margin-bottom: .65rem;
+}
+
+.feature-tile p {
+    line-height: 1.55;
+}
+
+.booking-input {
+    height: 47px;
+}
+
+.teacher-photo-wrap {
+    border-radius: 100%;
+}
+
+.social-link {
+    height: 38px;
+    width: 38px;
+}
+
+.testimonial-avatar {
+    height: 70px;
+    width: 70px;
+}
+
+.footer-brand-icon {
+    font-size: 40px;
+    line-height: 40px;
+}
+
+.footer-divider {
+    border-top: 1px solid rgba(23, 162, 184, 0.2);
+}
+
+.play-page {
+    background: #fef3c7;
+    color: #1f2937;
+    font-family: Figtree, ui-sans-serif, system-ui, sans-serif;
+    margin: 0;
+}
+
+.play-shell {
+    min-height: 100vh;
+    padding: 24px;
+}
+
+.play-header {
+    align-items: center;
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    margin: 0 auto 24px;
+    max-width: 1100px;
+}
+
+.play-title {
+    font-size: clamp(2.25rem, 6vw, 4.5rem);
+    margin: 0;
+}
+
+.play-subtitle {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin: 6px 0 0;
+}
+
+.back-link {
+    background: #111827;
+    border-radius: 999px;
+    color: #fff;
+    font-weight: 800;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.activity-grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    margin: 0 auto;
+    max-width: 1100px;
+}
+
+.worksheet-strip {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    margin: 0 auto 28px;
+    max-width: 1100px;
+}
+
+.worksheet-card {
+    background: #fff;
+    border: 4px solid #111827;
+    border-radius: 24px;
+    color: #111827;
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 900;
+    padding: 18px;
+    text-decoration: none;
+}
+
+.worksheet-icon {
+    color: #2563eb;
+}
+
+.worksheet-status {
+    font-size: .95rem;
+    margin-top: 8px;
+}
+
+.activity-button {
+    background: var(--activity-color, #2563eb);
+    border: 0;
+    border-radius: 28px;
+    box-shadow: 0 12px 0 rgba(0, 0, 0, .14);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.45rem;
+    font-weight: 900;
+    gap: 16px;
+    min-height: 210px;
+    padding: 24px;
+    text-align: left;
+    transform: translateY(0);
+    transition: transform .15s ease, box-shadow .15s ease;
+    width: 100%;
+}
+
+.activity-button:hover,
+.activity-button:focus {
+    box-shadow: 0 6px 0 rgba(0, 0, 0, .18);
+    outline: 4px solid rgba(255, 255, 255, .75);
+    transform: translateY(6px);
+}
+
+.activity-icon {
+    font-size: 3.25rem;
+}
+
+.completed {
+    background: rgba(255, 255, 255, .24);
+    border-radius: 999px;
+    font-size: 1rem;
+    padding: 8px 12px;
+    width: fit-content;
+}
+
+.empty-play-message {
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+@media (max-width: 991.98px) {
+    .welcome-header-slider .header-slide {
+        min-height: auto;
+        padding-bottom: 4rem;
+    }
+
+    .welcome-header-slider .header-slide-image {
+        max-height: 390px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .welcome-header-slider .display-3 {
+        font-size: 2.5rem;
+    }
+
+    .feature-tile {
+        min-height: 0;
+    }
+}
