@@ -133,5 +133,8 @@ class DatabaseSeeder extends Seeder
                 'assigned_at' => now(),
             ]);
         });
+
+        $this->call(GameSeeder::class);
     }
+    
 }

@@ -86,6 +86,23 @@
                                     <p>Worksheets</p>
                                 </a>
                             </li>
+                            <li class="nav-item {{ request()->routeIs('games.*') ? 'menu-open' : '' }}">
+                                <a href="#" class="nav-link {{ request()->routeIs('games.*') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-gamepad"></i>
+                                    <p>
+                                        Games
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ route('games.find-search') }}" class="nav-link {{ request()->routeIs('games.find-search') ? 'active' : '' }}">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Find and Search</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                             @if (Auth::user()?->isAdmin())
                                 <li class="nav-header">ADMIN</li>
                                 <li class="nav-item">

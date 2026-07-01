@@ -17,6 +17,9 @@ Route::get('/', function () {
 Route::get('/dashboard', LearningDashboardController::class)->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::view('/games/find-and-search', 'games.find-and-search')->name('games.find-search');
+    // Route::get('/children/{child}/games/find-and-search', [ChildGameController::class, 'findSearch'])
+    // ->name('children.games.find-search');
     Route::post('/children', [ChildProfileController::class, 'store'])->name('children.store');
     Route::delete('/children/{child}', [ChildProfileController::class, 'destroy'])->name('children.destroy');
     Route::get('/children/{child}/play', [ChildPlayController::class, 'show'])->name('children.play');

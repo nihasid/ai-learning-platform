@@ -47,4 +47,15 @@ class ChildProfile extends Model
     {
         return $this->hasMany(ChildWorksheetAssignment::class);
     }
+
+    public function gamePermissions()
+    {
+        return $this->hasMany(ChildGamePermission::class, 'child_id');
+    }
+
+    public function allowedGames()
+    {
+        return $this->belongsToMany(Game::class, 'child_game_permissions', 'child_id', 'game_id')
+            ->wherePivot('is_allowed', true);
+    }
 }

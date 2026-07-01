@@ -14,6 +14,10 @@ class ChildPlayController extends Controller
     {
         abort_unless($child->parent_id === $request->user()->id, 403);
 
+        $games = $child->allowedGames()
+        ->where('games.is_visible', true)
+        ->get();
+        
         $activities = $request->user()->learningActivities()
             ->where('is_active', true)
             ->latest()
